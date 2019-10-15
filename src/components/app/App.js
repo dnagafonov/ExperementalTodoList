@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../App.css';
 import {persons} from './persons'
+import "./app.css"
 
 export default class App extends React.Component{
     state= {
@@ -10,29 +11,35 @@ export default class App extends React.Component{
     displayPerson = person => {
         const newList = person.map((el,index) => {
             return(
-                <li key={index}>
-                    <div>{el.name}</div>
-                    <ul>{this.displayPersonList(el.list)}</ul>
-                </li>
+                <>
+                    <th  className="name-border">
+                        <h5>{el.name}</h5>
+                    </th>
+                    <tr>
+                        <td key={index} className="table-info">
+                            <>{this.displayPersonList(el.list)}</>
+                        </td>
+                    </tr>
+                </>
             )
         });
-        return (<ul>{newList}</ul>)
+        return (<table>{newList}</table>)
     };
 
     displayPersonList = list => {
         const newList = list.map((el,index) => {
             return(
-                <li key={index}>
-                    <p>{index}</p>
+                <div key={index}>
+                    <p>{index+1}-ое задание</p>
                     <ul>
                         <li key = '0'>{el.start}</li>
                         <li key = '1'>{el.end}</li>
                         <li key = '2'>{el.text}</li>
                     </ul>
-                </li>
+                </div>
             )
         });
-        return (<ul>{newList}</ul>)
+        return <>{newList}</>
     };
 
     render() {
