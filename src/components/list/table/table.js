@@ -1,9 +1,8 @@
 import React from 'react';
-import '../../App.css';
-import {persons} from './persons'
-import "./app.css"
+import {persons} from '../persons'
+import "./table.css"
 
-export default class App extends React.Component{
+export default class Table extends React.Component{
     state= {
         persons:persons
     };
@@ -12,7 +11,7 @@ export default class App extends React.Component{
         const newList = person.map((el,index) => {
             return(
                 <>
-                    <th  className="name-border">
+                    <th className="name-style">
                         <h5>{el.name}</h5>
                     </th>
                     <tr>

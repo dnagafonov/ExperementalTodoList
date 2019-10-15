@@ -6,7 +6,8 @@
     display: block;
 }
 
-.name-border{
+.name-style{
+    text-align: center;
     border: 3px solid mediumslateblue;
 }
 
