@@ -5,7 +5,8 @@ export default class SearchPanel extends React.Component{
         super(props);
         this.state = {
             todoText: '',
-            deadlineDate: ''
+            deadlineDate: '',
+            startDate:''
         };
         this.deadlineDate = React.createRef();
         this.todoText = React.createRef();
@@ -16,26 +17,35 @@ export default class SearchPanel extends React.Component{
     }
 
     onAddTextButtonClicked = () => {
-        this.setState(({
-            todoText: this.todoText.current.value
-        }));
+            this.setState(({
+                todoText: this.todoText.current.value
+            }));
     };
 
     addDeadlineDate = () => {
+            this.setState(({
+                deadlineDate: this.deadlineDate.current.value
+            }));
+
+    };
+
+    addStartDate = () => {
+        let date = new Date();
         this.setState(({
-            deadlineDate: this.deadlineDate.current.value
+            startDate: date.toDateString()
         }));
     };
 
     updateData = () => {
         this.onAddTextButtonClicked();
         this.addDeadlineDate();
+        this.addStartDate();
     };
 
     render() {
         return(
             <div>
-                <input type = "date" ref={this.addDeadlineDate}/>
+                <input type = "date" ref={this.deadlineDate}/>
                 <input placeholder="Новый элемент" type = "text" ref={this.todoText}/>
                     <button onClick={this.updateData.bind(this)}>add</button>
             </div>
