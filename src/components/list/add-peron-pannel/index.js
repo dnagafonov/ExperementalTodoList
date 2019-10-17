@@ -1,18 +1,37 @@
 import React from 'react'
 
 export default class SearchPanel extends React.Component{
-    state = {
-        text: "standard text"
+    constructor(props){
+        super(props);
+        this.state = {
+            todoText: '',
+            deadlineDate: ''
+        };
+        this.deadlineDate = React.createRef();
+        this.todoText = React.createRef();
     }
-    onAddButtonClicked = () => {
-        console.log("SOSI", this.addInformation.value)
-        this.setState({text: this.addInformation})
-    }
+    onAddTextButtonClicked = e => {         //SHIT
+        e.preventDefault();
+        this.setState(state => ({
+            text: this.todoText
+        }));
+        console.log(this.state);
+    };
+
+    onAddTextButtonClicked = e => {         //SHIT
+        e.preventDefault();
+        this.setState(state => ({
+            text: this.deadlineDate
+        }));
+        console.log(this.state);
+    };
+
     render() {
         return(
             <div>
-                <input placeholder="Новый элемент" type = "text" ref={el => this.addInformation = el}/>
-                    <button onClick={this.onAddButtonClicked.bind(this)}>addEl</button>
+                <input placeholder="Дата дедлайна" type = "date" ref={this.deadlineDate}/>
+                <input placeholder="Новый элемент" type = "text" ref={this.todoText}/>
+                    <button onClick={this.onAddButtonClicked.bind(this)}>add</button>
             </div>
         )
     }

@@ -4,25 +4,25 @@ import "./table.css"
 
 export default class Table extends React.Component{
     state= {
-        persons:persons
+        persons: persons
     };
 
     displayPerson = person => {
         const newList = person.map((el,index) => {
             return(
                 <>
-                    <th className="name-style">
+                    <div className="name-style">
                         <h5>{el.name}</h5>
-                    </th>
-                    <tr>
-                        <td key={index} className="table-info">
+                    </div>
+                    <div>
+                        <div key={index} className="table-info">
                             <>{this.displayPersonList(el.list)}</>
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
                 </>
             )
         });
-        return (<table>{newList}</table>)
+        return (<div className='my-table'>{newList}</div>)
     };
 
     displayPersonList = list => {
