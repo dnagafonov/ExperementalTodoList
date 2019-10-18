@@ -1,4 +1,5 @@
 import React from 'react'
+import './index.css'
 
 export default class SearchPanel extends React.Component{
     constructor(props){
@@ -44,7 +45,7 @@ export default class SearchPanel extends React.Component{
 
     render() {
         return(
-            <div>
+            <div className="add-panel">
                 <input type = "date" ref={this.deadlineDate}/>
                 <input placeholder="Новый элемент" type = "text" ref={this.todoText}/>
                     <button onClick={this.updateData.bind(this)}>add</button>

@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
-import SearchPanel from "./components/list/add-peron-pannel";
+import SearchPanel from "./components/list/add-person-pannel";
+import DoneTodoList from './components/DoneTodoList'
 
 export default class App extends React.Component{
     render() {
         return (
-            <div style={{display: "inline"}}>
-                <SearchPanel/>
+            <div>
+                <DoneTodoList/>
             </div>
         );
     }
